@@ -23,6 +23,7 @@ interface ApiService {
                 @Query("token") token: String?): Observable<ListingResult>
 
     @POST("listing/update")
+    @FormUrlEncoded
     fun listingUpdate(@Field("id") id: String?,
                       @Field("token") token: String?,
                       @Field("listing_id") listing_id: String?,
