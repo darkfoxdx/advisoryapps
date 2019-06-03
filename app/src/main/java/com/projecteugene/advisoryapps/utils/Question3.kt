@@ -5,6 +5,7 @@ package com.projecteugene.advisoryapps.utils
  */
 object Question3 {
     fun function(index: Int): String? {
+        if (index < 0 || index > 10000) return null
         return PRIME.substring(index, index+5)
     }
 

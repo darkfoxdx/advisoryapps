@@ -1,5 +1,6 @@
 package com.projecteugene.advisoryapps.activity
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -15,6 +16,9 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
 import kotlinx.android.synthetic.main.activity_main.*
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.widget.Toast
 import com.projecteugene.advisoryapps.databinding.DialogUpdateBinding
 import com.projecteugene.advisoryapps.model.Item
@@ -31,6 +35,23 @@ class MainActivity: AppCompatActivity(), ListingItemViewModel.OnListingItemListe
     lateinit var listingUpdateViewModel: ListingUpdateViewModel
 
     private val compositeDisposable = CompositeDisposable()
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle item selection
+        return when (item.itemId) {
+            R.id.q3 -> {
+                startActivity(Intent(this, Question3Activity::class.java))
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

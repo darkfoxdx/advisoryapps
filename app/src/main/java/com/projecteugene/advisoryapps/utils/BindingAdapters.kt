@@ -11,7 +11,11 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.google.android.material.textfield.TextInputLayout
 import com.projecteugene.advisoryapps.R
+import androidx.databinding.InverseBindingAdapter
+
+
 
 /**
  * Created by Eugene Low
@@ -72,5 +76,29 @@ fun setAccount(view: Button, account: MutableLiveData<Account>?) {
                 view.text = view.context.getText(R.string.logout)
             }
         })
+    }
+}
+
+@BindingAdapter("question3_input")
+fun setQuestion3Input(view: TextInputLayout, text: MutableLiveData<String>?) {
+    val parentActivity:AppCompatActivity? = view.context as? AppCompatActivity
+    if(parentActivity != null && text != null) {
+        text.observe(parentActivity, Observer { value ->
+            view.editText?.setText(text.value)
+        })
+    }
+}
+
+@InverseBindingAdapter(attribute = "question3_input", event = "android:textAttrChanged")
+fun getQuestion3Input(view: TextInputLayout): String? {
+    return view.editText?.text?.toString()
+}
+
+@BindingAdapter("question3_output")
+fun setQuestion3Output(view: TextView, text: MutableLiveData<String>?) {
+    val parentActivity:AppCompatActivity? = view.context as? AppCompatActivity
+    if(parentActivity != null && text != null) {
+        text.observe(parentActivity, Observer { value ->
+            view.text = Question3.function(text.value?.toIntOrNull()?:-1)})
     }
 }
