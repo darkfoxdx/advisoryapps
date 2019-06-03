@@ -1,7 +1,5 @@
 package com.projecteugene.advisoryapps.di.module
 
-import android.accounts.AccountManager
-import com.projecteugene.advisoryapps.activity.MainActivity
 import dagger.Module
 import dagger.Provides
 import android.app.Application

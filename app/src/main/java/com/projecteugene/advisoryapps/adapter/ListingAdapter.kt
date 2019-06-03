@@ -1,12 +1,8 @@
 package com.projecteugene.advisoryapps.adapter
 
-import android.app.Activity
-import android.app.Application
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.FragmentActivity
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.RecyclerView
 import com.projecteugene.advisoryapps.R
 import com.projecteugene.advisoryapps.databinding.ItemListingBinding

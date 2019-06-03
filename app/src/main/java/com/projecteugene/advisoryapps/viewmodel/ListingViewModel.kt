@@ -1,6 +1,5 @@
 package com.projecteugene.advisoryapps.viewmodel
 
-import android.accounts.AccountManager
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import com.projecteugene.advisoryapps.adapter.ListingAdapter
@@ -8,7 +7,6 @@ import com.projecteugene.advisoryapps.api.ApiService
 import com.projecteugene.advisoryapps.model.ListingResult
 import com.projecteugene.advisoryapps.utils.BaseViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 

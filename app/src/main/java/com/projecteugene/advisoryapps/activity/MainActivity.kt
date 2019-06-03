@@ -11,7 +11,6 @@ import com.projecteugene.advisoryapps.databinding.ActivityMainBinding
 import com.projecteugene.advisoryapps.viewmodel.ListingViewModel
 import com.projecteugene.advisoryapps.viewmodel.LoginViewModel
 import com.projecteugene.dialog.DialogBuilder
-import dagger.android.AndroidInjection
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
 import kotlinx.android.synthetic.main.activity_main.*
