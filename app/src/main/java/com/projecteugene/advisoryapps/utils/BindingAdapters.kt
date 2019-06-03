@@ -1,6 +1,7 @@
 package com.projecteugene.advisoryapps.utils
 
 import android.accounts.Account
+import android.graphics.Color
 import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
@@ -13,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.android.material.textfield.TextInputLayout
 import com.projecteugene.advisoryapps.R
-import androidx.databinding.InverseBindingAdapter
 
 
 
@@ -79,26 +79,27 @@ fun setAccount(view: Button, account: MutableLiveData<Account>?) {
     }
 }
 
-@BindingAdapter("question3_input")
-fun setQuestion3Input(view: TextInputLayout, text: MutableLiveData<String>?) {
+@BindingAdapter("question3_inputError")
+fun setQuestion3InputError(view: TextInputLayout, text: MutableLiveData<String>) {
     val parentActivity:AppCompatActivity? = view.context as? AppCompatActivity
-    if(parentActivity != null && text != null) {
+    if(parentActivity != null) {
         text.observe(parentActivity, Observer { value ->
-            view.editText?.setText(text.value)
+            if (Question3.function(value.toIntOrNull()) == null) {
+                view.error = view.context.getString(R.string.error_input)
+            } else {
+                view.isErrorEnabled = false
+            }
         })
     }
 }
 
-@InverseBindingAdapter(attribute = "question3_input", event = "android:textAttrChanged")
-fun getQuestion3Input(view: TextInputLayout): String? {
-    return view.editText?.text?.toString()
-}
 
 @BindingAdapter("question3_output")
 fun setQuestion3Output(view: TextView, text: MutableLiveData<String>?) {
     val parentActivity:AppCompatActivity? = view.context as? AppCompatActivity
     if(parentActivity != null && text != null) {
         text.observe(parentActivity, Observer { value ->
-            view.text = Question3.function(text.value?.toIntOrNull()?:-1)})
+            view.text = Question3.function(value.toIntOrNull())
+        })
     }
 }

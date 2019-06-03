@@ -42,13 +42,14 @@
                                 android:hint="@string/enter_number"
                                 app:layout_constraintVertical_chainStyle="packed"
                                 app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintBottom_toTopOf="@id/passwordTIL"
+                                app:layout_constraintBottom_toTopOf="@id/outputTextView"
                                 app:layout_constraintLeft_toLeftOf="parent"
-                                app:layout_constraintRight_toRightOf="parent">
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:question3_inputError="@{viewModel.input}">
                             <com.google.android.material.textfield.TextInputEditText
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:inputType="textEmailAddress"
+                                    android:inputType="number"
                                     android:text="@={viewModel.input}"/>
                         </com.google.android.material.textfield.TextInputLayout>
                         <TextView

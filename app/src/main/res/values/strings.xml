@@ -12,4 +12,5 @@
     <string name="enter_number">Enter number from 0 to 10000</string>
     <string name="question_3">Question 3</string>
     <string name="q3">Q3</string>
+    <string name="error_input">Please enter a number from 0 to 10000</string>
 </resources>
