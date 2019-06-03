@@ -22,6 +22,7 @@ abstract class BaseViewModel(application: Application): AndroidViewModel(applica
     val compositeDisposable: CompositeDisposable = CompositeDisposable()
     private val injector: ViewModelInjector = DaggerViewModelInjector
         .builder()
+        .applicationBind(application)
         .apiModule(ViewModelModule)
         .build()
 

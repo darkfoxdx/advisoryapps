@@ -2,7 +2,7 @@ package com.projecteugene.advisoryapps
 
 import android.app.Activity
 import android.app.Application
-import com.projecteugene.advisoryapps.di.component.DaggerApplicationComponent
+import com.projecteugene.advisoryapps.di.component.DaggerApplicationInjector
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
@@ -19,7 +19,7 @@ class MainApplication : Application(), HasActivityInjector {
 
     override fun onCreate() {
         super.onCreate()
-        DaggerApplicationComponent.builder()
+        DaggerApplicationInjector.builder()
             .applicationBind(this)
             .build()
             .inject(this)

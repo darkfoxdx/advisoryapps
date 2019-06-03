@@ -28,4 +28,11 @@ object ViewModelModule {
     internal fun provideRetrofitClient(): Retrofit {
         return ApiService.getInstance()
     }
+
+    @Provides
+    @Reusable
+    @JvmStatic
+    internal fun provideAccountManager(context: Application): AccountManager {
+        return AccountManager.get(context)
+    }
 }

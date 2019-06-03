@@ -87,7 +87,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/login"
-                            android:onClick="onClickButton"
+                            android:onClick="@{()->loginViewModel.onClickButton()}"
                             android:layout_gravity="center_horizontal"
                             app:mutable_account="@{loginViewModel.account}"
                             app:layout_constraintTop_toBottomOf="@id/passwordTIL"
