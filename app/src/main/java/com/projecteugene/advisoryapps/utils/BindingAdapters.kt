@@ -2,6 +2,7 @@ package com.projecteugene.advisoryapps.utils
 
 import android.accounts.Account
 import android.graphics.Color
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
@@ -81,15 +82,12 @@ fun setAccount(view: Button, account: MutableLiveData<Account>?) {
 
 @BindingAdapter("question3_inputError")
 fun setQuestion3InputError(view: TextInputLayout, text: MutableLiveData<String>) {
-    val parentActivity:AppCompatActivity? = view.context as? AppCompatActivity
-    if(parentActivity != null) {
-        text.observe(parentActivity, Observer { value ->
-            if (Question3.function(value.toIntOrNull()) == null) {
-                view.error = view.context.getString(R.string.error_input)
-            } else {
-                view.isErrorEnabled = false
-            }
-        })
+    text.observeForever { value ->
+        if (Question3.function(value.toIntOrNull()) == null) {
+            view.error = view.context.getString(R.string.error_input)
+        } else {
+            view.isErrorEnabled = false
+        }
     }
 }
 

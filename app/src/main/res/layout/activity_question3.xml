@@ -27,39 +27,35 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior">
-                <LinearLayout
-                        android:orientation="vertical"
+                <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/inputTIL"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-                        <com.google.android.material.textfield.TextInputLayout
-                                android:id="@+id/inputTIL"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="@string/enter_number"
-                                app:layout_constraintVertical_chainStyle="packed"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintBottom_toTopOf="@id/outputTextView"
-                                app:layout_constraintLeft_toLeftOf="parent"
-                                app:layout_constraintRight_toRightOf="parent"
-                                app:question3_inputError="@{viewModel.input}">
-                            <com.google.android.material.textfield.TextInputEditText
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:inputType="number"
-                                    android:text="@={viewModel.input}"/>
-                        </com.google.android.material.textfield.TextInputLayout>
-                        <TextView
-                                android:id="@+id/outputTextView"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                                android:layout_gravity="center"
-                                app:question3_output="@{viewModel.input}"/>
-                    </LinearLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                        android:layout_height="wrap_content"
+                        android:hint="@string/enter_number"
+                        app:layout_constraintVertical_chainStyle="packed"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toTopOf="@id/outputTextView"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:question3_inputError="@{viewModel.input}">
+                    <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:text="@={viewModel.input}"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <TextView
+                        android:id="@+id/outputTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                        android:layout_gravity="center"
+                        app:question3_output="@{viewModel.input}"/>
+            </LinearLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
