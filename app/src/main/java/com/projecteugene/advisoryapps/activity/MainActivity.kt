@@ -99,7 +99,6 @@ class MainActivity: AppCompatActivity(), ListingItemViewModel.OnListingItemListe
             .setTitle(R.string.update_field)
             .setTextNegativeButton(R.string.cancel)
             .setTextPositiveButton(R.string.update)
-            .setHasBinding(true)
             .show(binding)
 
         fragment.binding?.viewModel = listingUpdateViewModel
